@@ -13,6 +13,7 @@ syntax match rubyStatement '\v<in>' conceal cchar=∈
 syntax match rubyOperator '->' conceal cchar=→
 syntax match rubyOperator '<=' conceal cchar=≤
 syntax match rubyOperator '>=' conceal cchar=≥
+syntax match rubyOperator '=>' conceal cchar=⇒
 
 syntax match rubyOperator '\s\*\s'ms=s+1,me=e-1 conceal cchar=∙
 " syntax match Normal '\v(\+|-|*|/|\%)@!\=' conceal cchar=←
