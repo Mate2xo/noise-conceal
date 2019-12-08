@@ -39,7 +39,7 @@ syntax keyword Conditional else conceal cchar=▪
 syntax keyword Conditional end
 
 
-" syntax keyword Define def conceal cchar=※
+syn match  rubyDefine "\<def\>" nextgroup=rubyMethodDeclaration skipwhite skipnl conceal cchar=※
 syntax match rubyIdentifier '\v<self>' conceal cchar=⚕
 syntax match rubyIdentifier '\v<self>\.' conceal cchar=“
 
