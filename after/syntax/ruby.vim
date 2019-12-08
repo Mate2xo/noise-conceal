@@ -5,28 +5,22 @@
 " XXX least specific cases at the top, since the match rules seem to be
 " cumulative.
 
-" Need to be handled specially for `not in` to work. Order doesn't matter.
-" syntax match Normal '\v<not in>' conceal cchar=∉
+syntax keyword Repeat while conceal cchar=⥁
+syntax keyword Repeat for conceal cchar=∀
 syntax match rubyStatement '\v<in>' conceal cchar=∈
 
+syntax match rubyOperator '\s\*\s'ms=s+1,me=e-1 conceal cchar=∙
 
-syntax match rubyOperator '->' conceal cchar=→
 syntax match rubyOperator '<=' conceal cchar=≤
 syntax match rubyOperator '>=' conceal cchar=≥
-syntax match rubyOperator '=>' conceal cchar=⇒
-
-syntax match rubyOperator '\s\*\s'ms=s+1,me=e-1 conceal cchar=∙
-" syntax match Normal '\v(\+|-|*|/|\%)@!\=' conceal cchar=←
 syntax match rubyOperator '\v[^-=+*/]\zs\=\ze[^=]' conceal cchar=←
+syntax match rubyOperator "=>" conceal cchar=⇒
 syntax match rubyOperator '\v\=@<!\=\=\=@!' conceal cchar=≝
-
-
-" only conceal `==` if alone, to avoid concealing merge conflict markers
 syntax match rubyOperator '!=' conceal cchar=≠
+syntax match rubyOperator '===' conceal cchar=⇿
 
-
+syntax match rubyOperator '->' conceal cchar=→
 syntax keyword rubyKeyword lambda LAMBDA lambda_ _lambda conceal cchar=λ
-
 
 syntax keyword rubyConstant nil conceal cchar=∅
 syntax keyword Boolean true conceal cchar=✔
@@ -36,14 +30,14 @@ syntax keyword Boolean false conceal cchar=✗
 syntax keyword rubyKeyword break conceal cchar=◁
 syntax keyword rubyKeyword next conceal cchar=↻
 syntax keyword rubyKeyword return conceal cchar=↩
+
 " syntax match Normal '\v^(\s*)if' conceal cchar=▸
 syntax keyword Conditional if conceal cchar=▸
-syntax keyword Conditional then conceal cchar=⇥
+syntax keyword Conditional then conceal cchar=↦
 syntax keyword Conditional elsif conceal cchar=▹
 syntax keyword Conditional else conceal cchar=▪
+syntax keyword Conditional end
 
-syntax keyword Repeat for conceal cchar=∀
-syntax keyword Repeat while conceal cchar=⥁
 
 " syntax keyword Define def conceal cchar=※
 syntax match rubyIdentifier '\v<self>' conceal cchar=⚕
